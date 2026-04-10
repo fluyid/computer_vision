@@ -1,4 +1,4 @@
-path: C:\Users\kaila\PycharmProjects\computer_vision_lol\screenshot_generator\dataset\dataset
+path: /Users/kailashnah/PycharmProjects/computer_vision/screenshot_generator/dataset
 train: images/train
 val: images/val
 test: images/test
