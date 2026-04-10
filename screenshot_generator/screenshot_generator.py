@@ -6,7 +6,7 @@ import mss
 import pygetwindow as gw
 
 BASE_SAVE_DIR = "dataset/images"
-CAPTURE_INTERVAL = input(float("Enter how many seconds to capture before saving: "))
+CAPTURE_INTERVAL = 2
 
 os.makedirs(BASE_SAVE_DIR, exist_ok=True)
 

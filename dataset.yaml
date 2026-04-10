@@ -1,0 +1,12 @@
+path: C:\Users\kaila\PycharmProjects\computer_vision_lol\screenshot_generator\dataset\dataset
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: ally_minion
+  1: enemy_minion
+  2: enemy_champion
+  3: ally_champion
+  4: tower
+  5: player
