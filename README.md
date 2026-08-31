@@ -74,9 +74,9 @@ Built from scratch. No public dataset exists for this.
 | Frames segmented | 28 |
 | Largest class | `ally_minion` — 1,168 annotations |
 
-The full capture set is organised per-game on local storage and runs to tens of gigabytes, so it is not distributed here. `screenshot_generator/dataset/images/` contains an early flat capture batch predating the per-game structure, kept as a sample of raw input.
+The full capture set is organised per-game on local storage and runs to tens of gigabytes, so it is not distributed here. `preparation_scripts/screenshot_generator/dataset/images/` contains an early flat capture batch predating the per-game structure, kept as a sample of raw input.
 
-**Capture.** `screenshot_generator/` screenshots the screen every 2 seconds, starting 60 seconds into the match — minions spawn at 0:30 and take roughly another 30 seconds to reach lane, so anything earlier is empty frames. Each game gets its own folder, with frame numbering continuous across sessions so the dataset can grow without collisions.
+**Capture.** `preparation_scripts/screenshot_generator/` screenshots the screen every 2 seconds, starting 60 seconds into the match — minions spawn at 0:30 and take roughly another 30 seconds to reach lane, so anything earlier is empty frames. Each game gets its own folder, with frame numbering continuous across sessions so the dataset can grow without collisions.
 
 **Automatic frame filtering.** Two cheap heuristics reject frames containing no usable gameplay, avoiding a manual pass over thousands of screenshots:
 

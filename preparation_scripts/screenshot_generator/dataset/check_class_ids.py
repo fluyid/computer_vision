@@ -1,7 +1,7 @@
 from pathlib import Path
 from collections import Counter
 
-DATASET_DIR = Path("/Users/kailashnah/PycharmProjects/computer_vision/screenshot_generator/dataset")
+DATASET_DIR = Path("/preparation_scripts/screenshot_generator/dataset")
 SPLITS = ["train", "val", "test"]
 
 def main() -> None:
