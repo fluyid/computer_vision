@@ -121,22 +121,21 @@ Stated plainly, because they bound what the numbers above mean:
 
 ## Repository structure
 
-```
-├── screenshot_generator/
-│   ├── screenshot_generator.py   # frame capture
-│   ├── requirements.txt          # capture dependencies
-│   ├── README.md                 # capture setup instructions
-│   └── dataset/images/           # early sample of raw captured frames
+├── preparation_scripts/
+│   ├── make_demo_gif.py          # exports size-bounded demo GIFs from prediction video
+│   └── screenshot_generator/     # frame capture tool (own README and requirements)
 ├── runs/                         # training runs and inference output
-├── video_clips/                  # gameplay clips used for video inference
+├── docs/                         # demo assets
+├── video_clips/                  # raw gameplay clips used as inference input
 ├── dataset.yaml                  # class names and split paths
 ├── train_yolo.py                 # training entry point
 ├── run_inference.py              # inference on images or video
 ├── fix_class_ids.py              # one-off: rewrite label class IDs from 1-6 to 0-5
 └── check_setup.py                # environment / CUDA check
-```
 
-Training runs in `runs/`: `lol_detect_baseline` through `baseline3` (YOLO11n detection), plus `lol_detect_yolov8n` and `lol_detect_yolo26n` (segmentation comparison).
+Inside `runs/`: `lol_detect_baseline` through `baseline3` are YOLO11n detection runs,
+`lol_detect_yolov8n` and `lol_detect_yolo26n` are the segmentation comparison, and
+`predict_images` / `predict_video` / `predict_video2` hold inference output.
 
 ---
 
@@ -148,7 +147,7 @@ Requires Python 3.13+ and [Ultralytics](https://docs.ultralytics.com/).
 pip install ultralytics
 
 # capture frames — see screenshot_generator/README.md for setup
-cd screenshot_generator
+cd preparation_scripts/screenshot_generator
 pip install -r requirements.txt
 python screenshot_generator.py
 
@@ -157,6 +156,9 @@ python train_yolo.py
 
 # inference — prompts for "images" or "video"
 python run_inference.py
+
+# export a demo GIF from prediction output (prompts if run with no arguments)
+python preparation_scripts/make_demo_gif.py
 ```
 
 Training writes to `runs/lol_detect_baseline*/`. Inference loads `runs/lol_detect_baseline3/weights/best.pt` and writes annotated output to `runs/predict_images/` or `runs/predict_video/`.
