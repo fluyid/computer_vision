@@ -4,10 +4,8 @@ Real-time detection of in-game entities from raw League of Legends gameplay, usi
 
 Six classes: `ally_minion`, `enemy_minion`, `enemy_champion`, `ally_champion`, `tower`, `player`.
 
-<!-- TODO: add a short inference GIF or 2-3 annotated frames from runs/predict_video, then
-     uncomment the line below. Left commented so the README never renders a broken image.
-![Inference on a laning phase clip](docs/demo_laning.gif)
--->
+
+![YOLO11n inference on laning phase footage](docs/demo.gif)
 
 ---
 
