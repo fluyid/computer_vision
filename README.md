@@ -46,7 +46,7 @@ An earlier training run finished at mAP@50 0.837 with recall 0.649. Most of the 
 
 ### Known failure case: the blast cone
 
-The model classifies blast cones (a terrain object) as minions. This is a legible failure rather than a random one — blast cones share both the colour palette and the overhead health-bar element that the model appears to have learned as its minion cue. A clean example of a detector latching onto a correlated visual feature rather than the object itself.
+The model classifies blast cones (a terrain object) as minions. This is a legible failure rather than a random one — blast cones share both the colour palette and the overhead health-bar element that the model appears to have learned as its minion cue. This is the visible symptom of a broader issue; see [Limitations](#limitations): terrain objects are absent from the label space, so the model has no correct class to assign them.
 
 ### A separate segmentation experiment
 
@@ -109,6 +109,7 @@ Remaining invalid frames — scoreboard and settings overlays — were excluded 
 
 Stated plainly, because they bound what the numbers above mean:
 
+- **The label space is narrower than the domain.** The six classes cover lane content only. The map contains many neutral entities the model has never seen labelled — jungle camps, epic monsters, void grubs, and summoned units such as Ivern's Daisy. A detector cannot abstain, so each of these is forced into the nearest known class. This is a consequence of the class design, not a defect in training, and it needs additional classes and negative examples rather than a different architecture.
 - **Overlap-heavy scenes are under-represented.** Cluttered frames were hardest to annotate accurately, so the dataset skews toward calmer gameplay — meaning the reported metrics likely flatter real teamfight performance.
 - **Bush and stealth opacity** makes some champions hard for both the model *and* the annotator.
 - **Bright ability effects** from mages wash out regions of the frame.
